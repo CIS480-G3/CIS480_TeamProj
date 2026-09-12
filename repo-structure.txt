@@ -1,0 +1,18 @@
+A basic layout of how we could use the repo. Nothing is set in stone though, so if we want to change things, we can.
+
+├── .gitignore               # Keeps massive data files and API keys off GitHub (things starred * will be IGNORED by github)
+├── README.md                # The main documentation page
+├── requirements.txt         # Python package dependencies (or environment.yml)
+│
+├── data/                    # DON'T COMMIT raw data, we don't know what the licenses are like
+│   ├── raw/*                # Original data dumps
+│   ├── processed/*          # Cleaned / transformed data for modeling/analysis
+│   └── outputs/*            # Exported CSVs, aggregations, or final tables
+│
+├── notebooks/               # Jupyter Notebooks for exploration
+│   ├── 1.0-data-cleaning.ipynb
+│   └── 2.0-exploratory-analysis.ipynb
+│
+├── src/                     # Reusable production-ready scripts (Python and similar)
+│
+└── visuals/                 # Saved images of charts for the README or presentations

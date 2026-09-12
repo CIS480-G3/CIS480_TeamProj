@@ -1,0 +1,14 @@
+# Data files
+data/raw/*
+data/processed/*
+data/outputs/*
+!data/**/.gitkeep
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Local environments & credentials
+.env
+venv/
+.venv/
