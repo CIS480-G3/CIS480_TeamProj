@@ -126,7 +126,7 @@ print(confusion_matrix(y_test, model_pred))
      [  12   56]]
     
 
-**Reading this result:** at the default 0.5 threshold, logistic regression catches 56 of 68 real failures (82.4% recall) but flags 346 of 1,932 healthy machines as false alarms, an 17.9% false-alarm rate. That's above the 10% limit the team set in Section 3, which is exactly why Question 3 (threshold tuning) matters, the default threshold isn't automatically the right one.
+**Reading this result:** at the default 0.5 threshold, logistic regression catches 56 of 68 real failures (82.4% recall) but flags 346 of 1,932 healthy machines as false alarms, an 17.9% false-alarm rate. That's above the 10% limit the team set in Section 3, which is exactly why Threshold Tuning matters, the default threshold isn't automatically the right one.
 
 ## 6. One chart: torque by failure status
 
