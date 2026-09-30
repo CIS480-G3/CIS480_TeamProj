@@ -37,6 +37,7 @@ TBD
    ``` 
 
 3. **Run the notebooks:** Open Jupyter Lab or VS Code and navigate to `notebooks/1.0_ingest_pipeline.ipynb` to begin.
+
 **- OR - Run the python script:** Open vs code or similar and navigate to /src/`ingest_pipeline_ai4i2020_PMD.py` and run
 
 ## Team Info
