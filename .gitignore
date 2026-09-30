@@ -12,3 +12,4 @@ data/outputs/*
 .env
 venv/
 .venv/
+.local/
