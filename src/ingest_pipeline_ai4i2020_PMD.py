@@ -40,5 +40,5 @@ print(f"Original dataset saved to: {Path(RAW_DATA_DIR / "ai4i2020.csv")}")
 data.to_parquet(RAW_DATA_DIR / "ai4i2020.parquet")
 print(f"Original dataset saved to: {Path(RAW_DATA_DIR / "ai4i2020.parquet")}")
 
-data.to_csv(PROC_DATA_DIR / "ai4i2020_processed.csv")
+model_data.to_csv(PROC_DATA_DIR / "ai4i2020_processed.csv", index=False)
 print(f"Processed dataset saved to: {Path(PROC_DATA_DIR / "ai4i2020_processed.csv")}")
