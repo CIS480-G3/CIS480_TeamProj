@@ -21,6 +21,7 @@ PROC_DATA_DIR.mkdir(parents=True, exist_ok=True) # create folder if needed
 ai4i_2020_pmd = fetch_ucirepo(id=DATASET_ID)
   
 # data (as pandas dataframes)
+assert ai4i_2020_pmd.data is not None
 data = pd.DataFrame(ai4i_2020_pmd.data.original)
 
 # dropping UID, Product ID and target columns (twf, hdf, pwf, osf, and rnf)
@@ -34,10 +35,10 @@ model_data.columns = model_data.columns.str.lower().str.replace(" ", "_")
 model_data.head()
 
 # SAVE ALL DATA
-data.to_csv(RAW_DATA_DIR / "ai4i2020.csv")
+data.to_csv(RAW_DATA_DIR / "ai4i2020.csv", index=False)
 print(f"Original dataset saved to: {Path(RAW_DATA_DIR / "ai4i2020.csv")}")
 
-data.to_parquet(RAW_DATA_DIR / "ai4i2020.parquet")
+data.to_parquet(RAW_DATA_DIR / "ai4i2020.parquet", index=False)
 print(f"Original dataset saved to: {Path(RAW_DATA_DIR / "ai4i2020.parquet")}")
 
 model_data.to_csv(PROC_DATA_DIR / "ai4i2020_processed.csv", index=False)
