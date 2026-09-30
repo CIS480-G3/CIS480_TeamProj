@@ -9,7 +9,8 @@ Predictive Maintenance: Comparing a Trained Classifier Against a Baseline for Ma
 * **Objective:** TBD
 
 ## Data Source
-Source DOI: 10.24432/C5HS5C
+Source DOI: 10.24432/C5HS5C   -   https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset
+
 A synthetic predictive maintenance dataset designed to allow for real-world machine failure prediction and analysis based on operating measures. Data includes 10,000 rows, 14, columns, and 0 NaN values.
 
 |    | name                | role    | type        |
