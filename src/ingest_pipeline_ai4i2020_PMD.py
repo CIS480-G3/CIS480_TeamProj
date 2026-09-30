@@ -1,14 +1,13 @@
 # imports
 import pandas as pd
-import pyarrow
 from pathlib import Path
-from ucimlrepo import fetch_ucirepo # import uc irvine library to fetch and format dataset~
+from ucimlrepo import fetch_ucirepo # import uc irvine library to fetch and format dataset
 
 # AI4I 2020 PMD dataset: 601
 DATASET_ID = 601
 
 # establish save directory
-# ! Be sure this python file is not moved from /src/ !
+# python file MUST remain in /src/
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 RAW_DATA_DIR = REPO_ROOT / "data" / "raw"
@@ -23,10 +22,6 @@ ai4i_2020_pmd = fetch_ucirepo(id=DATASET_ID)
   
 # data (as pandas dataframes)
 data = pd.DataFrame(ai4i_2020_pmd.data.original)
-
-# OPTIONAL: the dataset includes separated feature and target sets
-# X = pd.DataFrame(ai4i_2020_pmd.data.features)
-# y = pd.DataFrame(ai4i_2020_pmd.data.targets) 
 
 # dropping UID, Product ID and target columns (twf, hdf, pwf, osf, and rnf)
 model_data = data.drop(columns=["UID","Product ID","TWF","HDF","PWF","OSF","RNF"])
@@ -47,12 +42,3 @@ print(f"Original dataset saved to: {Path(RAW_DATA_DIR / "ai4i2020.parquet")}")
 
 data.to_csv(PROC_DATA_DIR / "ai4i2020_processed.csv")
 print(f"Processed dataset saved to: {Path(PROC_DATA_DIR / "ai4i2020_processed.csv")}")
-
-# OPTIONAL: save the separated sets as well
-# X.to_csv(RAW_DATA_DIR / "ai4i2020_features.csv")
-# X.to_parquet(RAW_DATA_DIR / "ai4i2020_features.parquet")
-# print(f"Feature subset saved to: {RAW_DATA_DIR}")
-
-# y.to_csv(RAW_DATA_DIR / "ai4i2020_targets.csv")
-# y.to_parquet(RAW_DATA_DIR / "ai4i2020_targets.parquet")
-# print(f"Target subset saved to: {RAW_DATA_DIR}")
