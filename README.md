@@ -5,8 +5,9 @@ Repo for the group CIS480 data analytics project
 Predictive Maintenance: Comparing a Trained Classifier Against a Baseline for Machine Failure Detection
 
 ## Business Problem & Objectives
-* **Problem:** TBD
-* **Objective:** TBD
+* **Problem:** Unexpected machine failure leading to downtime.
+* **Objective:** A trained classifier compared against a simple baseline. The MVP is designed to test operating measurements for a signal reliable enough to predict failures within test data.
+
 
 ## Data Source
 Source DOI: 10.24432/C5HS5C   -   https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset
