@@ -228,22 +228,3 @@ plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
-
-# ------------------------------------------------------------
-# 8. Ready-to-paste report sentence for Section 5.2
-# ------------------------------------------------------------
-
-print("=" * 70)
-print("SECTION 5.2 REPLACEMENT TEXT")
-print("=" * 70)
-print(
-    f"Among the tested thresholds from 0.05 through 0.95, the "
-    f"recommended cutoff was {recommended['Threshold']:.2f}. "
-    f"At this cutoff, the model flagged {int(recommended['FP'])} of "
-    f"{n_healthy} healthy machines "
-    f"({recommended['False Alarm Rate']:.2%} false alarm rate) and "
-    f"caught {int(recommended['TP'])} of {n_failures} real failures "
-    f"({recommended['Recall']:.2%} recall). This cutoff was selected "
-    f"because it produced the highest recall while keeping the false "
-    f"alarm rate at or below the team's 10% limit."
-)
