@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
+from pathlib import Path
 
 # ------------------------------------------------------------
 # 1. Load data and recreate the A04 model
@@ -118,6 +119,13 @@ threshold_results['Recall %'] = (
     threshold_results['Recall'] * 100
 ).round(2)
 
+# Save the full threshold table for T07
+
+OUTPUT_DIR = SCRIPT_DIR.parent / 'data' / 'outputs'
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+threshold_results.to_csv(OUTPUT_DIR / 't07_threshold_sweep.csv', index=False)
+
 # ------------------------------------------------------------
 # 4. Select the recommended cutoff
 # ------------------------------------------------------------
@@ -194,37 +202,47 @@ plt.figure(figsize=(10, 6))
 plt.plot(
     threshold_results['Threshold'],
     threshold_results['Recall %'],
+    color='tab:blue',
+    linestyle='-',
     marker='o',
-    markersize=3,
+    markersize=4,
     label='Recall'
 )
 
 plt.plot(
     threshold_results['Threshold'],
     threshold_results['False Alarm %'],
-    marker='o',
-    markersize=3,
+    color='tab:orange',
+    linestyle='--',
+    marker='s',
+    markersize=4,
     label='False Alarm Rate'
 )
 
 plt.axhline(
     10,
-    linestyle='--',
     color='red',
+    linestyle=':',
     label='10% False Alarm Limit'
 )
 
 plt.axvline(
     recommended['Threshold'],
-    linestyle='--',
     color='green',
+    linestyle='-.',
     label=f"Recommended Cutoff ({recommended['Threshold']:.2f})"
 )
 
-plt.xlabel('Classification Threshold')
+plt.xlabel('Classification Threshold (probability, 0–1)')
 plt.ylabel('Rate (%)')
 plt.title('Figure 1. Recall and False Alarm Rate Across Classification Thresholds')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
+
+# Save Figure 1 for T07
+FIG_PATH = OUTPUT_DIR / 'figure1_recall_false_alarm.png'
+plt.savefig(FIG_PATH, dpi=150, bbox_inches='tight')
+print(f"Saved Figure 1 to {FIG_PATH}")
+
 plt.show()
