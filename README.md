@@ -31,13 +31,12 @@ A synthetic predictive maintenance dataset designed to allow for real-world mach
 | 12 | OSF                 | Target  | Integer     |
 | 13 | RNF                 | Target  | Integer     |  
 
-## Tech Stack & Tools (Tentative)
-* **Language:** Python 3.14 / R
-* **Libraries:** Pandas, NumPy, Seaborn, Scikit-learn
-* **BI / Visualization:** Tableau / Power BI
+## Tech Stack & Tools
+* **Language:** Python 3.14
+* **Libraries:** Pandas, NumPy, Scikit-learn, [see reqirements.txt]
 
 ## Key Insights
-TBD
+TODO
 
 ## How to Run This Project
 1. **Clone the repository:**
