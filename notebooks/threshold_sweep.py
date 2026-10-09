@@ -9,21 +9,33 @@
 #   - Select highest recall where false alarm rate ≤ 10%
 # ============================================================
 
+# ============================================================
+# T07 Threshold Sweep — Joey's Deliverable
+# ============================================================
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
-from pathlib import Path
+
+# --- Paths ---------------------------------------------------
+SCRIPT_DIR = Path(__file__).resolve().parent
+CSV_PATH = SCRIPT_DIR.parent / 'data' / 'raw' / 'ai4i2020.csv'
+OUTPUT_DIR = SCRIPT_DIR.parent / 'data' / 'outputs'
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+# --- Load data -----------------------------------------------
+if not CSV_PATH.exists():
+    raise FileNotFoundError(f"CSV not found at: {CSV_PATH}")
+print(f"Loading CSV from: {CSV_PATH}")
+df = pd.read_csv(CSV_PATH)
 
 # ------------------------------------------------------------
 # 1. Load data and recreate the A04 model
 # ------------------------------------------------------------
-
-# Adjust the path if your data lives elsewhere
-df = pd.read_csv('../data/raw/ai4i2020.csv')
 
 predictors = [
     'Air temperature',
