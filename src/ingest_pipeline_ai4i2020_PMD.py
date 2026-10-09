@@ -1,3 +1,6 @@
+"""DEPRECIATED: Use pipeline.py methods instead.
+"""
+
 # imports
 import pandas as pd
 from pathlib import Path
