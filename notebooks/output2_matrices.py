@@ -21,7 +21,7 @@ base.fit(X_train, y_train)
 base_pred = base.predict(X_test)
 
 # Model scores at the chosen cutoff
-CUTOFF = 0.67
+CUTOFF = 0.66
 model = LogisticRegression(class_weight='balanced', max_iter=1000)
 model.fit(X_train, y_train)
 scores = model.predict_proba(X_test)[:, 1]
@@ -29,7 +29,7 @@ model_pred = (scores >= CUTOFF).astype(int)
 
 # Build one table with both rows
 rows = []
-for name, pred in [('Baseline', base_pred), ('Model at 0.67', model_pred)]:
+for name, pred in [('Baseline', base_pred), ('Model at 0.66', model_pred)]:
     tn, fp, fn, tp = confusion_matrix(y_test, pred, labels=[0, 1]).ravel()
     rows.append({'Case': name, 'TN': tn, 'FP': fp, 'FN': fn, 'TP': tp,
                  'Recall %': round(100 * tp / (tp + fn), 2),
