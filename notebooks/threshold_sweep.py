@@ -238,11 +238,14 @@ plt.axhline(
     label='10% False Alarm Limit'
 )
 
+# Cutoff chosen on the validation split
+CHOSEN_CUTOFF = 0.66
+
 plt.axvline(
-    recommended['Threshold'],
+    CHOSEN_CUTOFF,
     color='green',
     linestyle='-.',
-    label=f"Recommended Cutoff ({recommended['Threshold']:.2f})"
+    label=f"Chosen Cutoff ({CHOSEN_CUTOFF:.2f})"
 )
 
 plt.xlabel('Classification Threshold (probability, 0–1)')
