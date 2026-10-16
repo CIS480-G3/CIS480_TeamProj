@@ -26,15 +26,15 @@ def run_evaluation():
     DF = pipeline.load_data('processed')
 
     predictors = [
-        'air_temperature',
-        'process_temperature',
-        'rotational_speed',
-        'torque',
-        'tool_wear'
+        'Air temperature',
+        'Process temperature',
+        'Rotational speed',
+        'Torque',
+        'Tool wear'
     ]
 
     X = DF[predictors]
-    y = DF['machine_failure']
+    y = DF['Machine failure']
 
     # test/train split
     X_train, X_test, y_train, y_test = train_test_split(
