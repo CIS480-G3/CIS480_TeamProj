@@ -1,0 +1,26 @@
+Air temperature,Process temperature,Rotational speed,Torque,Tool wear,Machine failure,Type_H,Type_L,Type_M
+299.7,309.1,1417,50.1,187,0,False,True,False
+302.0,310.9,1378,53.1,212,1,False,True,False
+298.8,309.1,1350,52.5,111,0,False,True,False
+299.7,310.5,1490,41.2,126,0,False,False,True
+301.9,310.8,1540,37.6,83,0,False,True,False
+301.3,310.4,1414,51.4,199,0,False,True,False
+302.5,311.5,1985,18.8,190,0,False,True,False
+298.5,309.2,1568,40.6,39,0,True,False,False
+300.6,310.8,1375,53.2,179,0,False,True,False
+297.2,308.3,1419,39.7,115,0,False,True,False
+302.2,311.5,1482,42.6,16,0,True,False,False
+300.1,311.4,1467,35.7,45,0,False,True,False
+303.3,312.6,1397,47.1,137,0,False,False,True
+301.8,310.2,1457,40.4,213,0,False,True,False
+302.1,311.2,1616,35.1,57,0,False,False,True
+299.3,309.0,1425,40.6,123,0,True,False,False
+298.7,309.8,1435,48.8,71,0,False,False,True
+300.6,310.6,1427,52.8,75,0,False,False,True
+302.3,311.0,1657,31.1,3,0,False,True,False
+301.4,311.1,1445,41.4,144,0,True,False,False
+299.0,310.3,1552,39.9,114,0,False,True,False
+300.2,311.6,1510,47.5,146,0,False,False,True
+301.0,310.9,1473,44.2,116,0,False,True,False
+300.9,310.8,1482,37.0,5,0,False,True,False
+300.2,309.7,1408,44.0,144,0,False,False,True
