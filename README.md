@@ -1,5 +1,4 @@
 # Predictive Maintenance: Comparing a Trained Classifier Against a Baseline for Machine Failure Detection
-
 ## Overview
 This project explores general industrial predictive maintenance, using a public, synthetic dataset. The hypothetical stakeholder is a
 maintenance manager looking to systematically identify and flag likely failures preemptively.
@@ -62,9 +61,10 @@ A model with this cutoff value will catch 49 of 68 failures, compared to a basel
    ``` 
 
 3. **Recommended: Run the pipeline script**  
-Open VS Code or similar and navigate to `src/pipeline.py` and run.  
-** Alternative: Run the notebook file**  
-Open Jupyter Lab or VS Code and navigate to `notebooks/1.0_ingest_pipeline.ipynb` to ingest data to local device.
+Open VS Code or similar and navigate to `src/pipeline.py` and run script to ingest data to local device.  
+**Alternative: Run the notebook file**  
+Open Jupyter Lab or VS Code and navigate to `notebooks/ingest_pipeline.ipynb`.  
+sample_input.csv is already included in github data, and can be accessed immediately.
 
 ## Team Info
 * **Authors:** Anthony Fuentes, Alex Johnson, Joey Brekan, Abraham Perez
