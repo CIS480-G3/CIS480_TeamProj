@@ -31,7 +31,7 @@ A synthetic predictive maintenance dataset designed to allow for real-world mach
 ## Tech Stack & Tools
 * **Language:** Python 3.14
 * **Libraries:** Pandas, NumPy, Scikit-learn, [see reqirements.txt for more information]
-* **Programs** Python compatible IDE (VS Code), git
+* **Programs**: Python compatible IDE (VS Code), git
 
 ## Insights
 *As of 10/15/2026*
