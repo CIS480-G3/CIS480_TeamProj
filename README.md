@@ -1,6 +1,5 @@
 # Predictive Maintenance: Comparing a Trained Classifier Against a Baseline for Machine Failure Detection
-This project explores general industrial predictive maintenance, using a public, synthetic dataset. The hypothetical stakeholder is a
-maintenance manager looking to systematically identify and flag likely failures preemptively.
+This project explores general industrial predictive maintenance using a public, synthetic dataset. The hypothetical stakeholder is a maintenance manager looking to systematically identify and flag likely failures preemptively.
 
 ## Business Problem & Objectives
 * **Problem:** Unexpected machine failure leading to downtime.
@@ -32,6 +31,7 @@ A synthetic predictive maintenance dataset designed to allow for real-world mach
 ## Tech Stack & Tools
 * **Language:** Python 3.14
 * **Libraries:** Pandas, NumPy, Scikit-learn, [see reqirements.txt for more information]
+* **Programs** Python compatible IDE (VS Code), git
 
 ## Insights
 *As of 10/15/2026*
