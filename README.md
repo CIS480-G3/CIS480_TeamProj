@@ -1,8 +1,8 @@
-# CIS480_TeamProj
-Repo for the group CIS480 data analytics project
+# Predictive Maintenance: Comparing a Trained Classifier Against a Baseline for Machine Failure Detection
 
 ## Overview
-Predictive Maintenance: Comparing a Trained Classifier Against a Baseline for Machine Failure Detection
+This project explores general industrial predictive maintenance, using a public, synthetic dataset. The hypothetical stakeholder is a
+maintenance manager looking to systematically identify and flag likely failures preemptively.
 
 ## Business Problem & Objectives
 * **Problem:** Unexpected machine failure leading to downtime.
@@ -33,30 +33,38 @@ A synthetic predictive maintenance dataset designed to allow for real-world mach
 
 ## Tech Stack & Tools
 * **Language:** Python 3.14
-* **Libraries:** Pandas, NumPy, Scikit-learn, [see reqirements.txt]
+* **Libraries:** Pandas, NumPy, Scikit-learn, [see reqirements.txt for more information]
 
-## Key Insights
-TODO
+## Insights
+*As of 10/15/2026*
+Choosing a cutoff that results in a desired false positive value of 10% or less, the following was discovered:
+* Selected Cutoff Value: **0.66**
+* Test Recall: **72.06%**
+* False Alarm Rate: **10.14%**  
+
+A model with this cutoff value will catch 49 of 68 failures, compared to a baseline model which identified 0 of 68 failures. However, the current model incorrectly issues false alarms at a rate of 10.14%, slightly above our stated limit, and far above the baseline. Further model tuning is recommended.
 
 ## How to Run This Project
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/CIS480-G3/CIS480_TeamProj.git
    ```
-2. **Install dependencies :**
-   Optional: Create a python venv if desired:
+2. **Install dependencies :**  
+   *Optional: Create a python venv if desired:*
    ```bash
    python -m venv .venv
 
    source .venv/bin/activate
    ```
-   Install dependencies with:
+   **Install dependencies with:**
    ```bash
    pip install -r requirements.txt
    ``` 
 
-3. **Run the notebooks:** Open Jupyter Lab or VS Code and navigate to `notebooks/1.0_ingest_pipeline.ipynb` to begin.
-   **- OR - Run the python script:** Open vs code or similar and navigate to /src/`ingest_pipeline_ai4i2020_PMD.py` and run
+3. **Recommended: Run the pipeline script**  
+Open VS Code or similar and navigate to `src/pipeline.py` and run.  
+** Alternative: Run the notebook file**  
+Open Jupyter Lab or VS Code and navigate to `notebooks/1.0_ingest_pipeline.ipynb` to ingest data to local device.
 
 ## Team Info
 * **Authors:** Anthony Fuentes, Alex Johnson, Joey Brekan, Abraham Perez
