@@ -1,5 +1,4 @@
 # Predictive Maintenance: Comparing a Trained Classifier Against a Baseline for Machine Failure Detection
-## Overview
 This project explores general industrial predictive maintenance, using a public, synthetic dataset. The hypothetical stakeholder is a
 maintenance manager looking to systematically identify and flag likely failures preemptively.
 
