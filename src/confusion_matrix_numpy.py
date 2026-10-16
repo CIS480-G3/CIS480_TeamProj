@@ -3,6 +3,9 @@ import pipeline # my bespoke module
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
+CUTOFF_DEFAULT = 0.5
+CUTOFF_CALC = 0.66
+
 def numpy_confusion_matrix(actual, predicted):
     # sort and map unique classes to indices
     classes = sorted(list(set(actual) | set(predicted)))
@@ -21,9 +24,6 @@ def numpy_confusion_matrix(actual, predicted):
 def run_evaluation():
     # load data
     DF = pipeline.load_data('processed')
-
-    CUTOFF_DEFAULT = 0.5
-    CUTOFF_CALC = 0.66
 
     predictors = [
         'air_temperature',
@@ -62,5 +62,5 @@ if __name__ == '__main__':
     np_cm_default = numpy_confusion_matrix(y_test, pred_default)
     np_cm_calc = numpy_confusion_matrix(y_test, pred_calc)
 
-    print("Numpy Confusion Matrix (Default Threshold 0.5):\n", np_cm_default)
-    print("Numpy Confusion Matrix (Calculated Threshold 0.66):\n", np_cm_calc)
+    print(f"Numpy Confusion Matrix (Default Threshold {CUTOFF_DEFAULT}):\n", np_cm_default)
+    print(f"Numpy Confusion Matrix (Calculated Threshold {CUTOFF_CALC}):\n", np_cm_calc)
