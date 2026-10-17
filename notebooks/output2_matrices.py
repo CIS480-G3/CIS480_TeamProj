@@ -1,11 +1,13 @@
 import pandas as pd
+import pipeline
+from pathlib import Path
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.dummy import DummyClassifier
 from sklearn.metrics import confusion_matrix
 
 # Load the pipeline CSV
-df = pd.read_csv('../data/raw/ai4i2020.csv')
+df = pipeline.load_data()
 predictors = ['Air temperature', 'Process temperature',
               'Rotational speed', 'Torque', 'Tool wear']
 X = df[predictors]
@@ -38,4 +40,4 @@ out = pd.DataFrame(rows)
 print(out.to_string(index=False))
 
 # Save as evidence file
-out.to_csv('../results/output2_matrices.csv', index=False)
+out.to_csv(pipeline.OUTPUTS_DATA_DIR / 'output2_matrices.csv', index=False)
