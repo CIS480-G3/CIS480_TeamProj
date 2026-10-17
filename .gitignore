@@ -1,7 +1,6 @@
 # Data files
 data/raw/*
 data/processed/*
-data/outputs/*
 !data/**/.gitkeep
 
 # Jupyter Notebook checkpoints
