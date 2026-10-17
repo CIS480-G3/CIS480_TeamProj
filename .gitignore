@@ -13,3 +13,4 @@ data/outputs/*
 venv/
 .venv/
 .local/
+src/cis480src.egg-info/PKG-INFO
