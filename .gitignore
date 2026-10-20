@@ -1,7 +1,6 @@
 # Data files
 data/raw/*
 data/processed/*
-data/outputs/*
 !data/**/.gitkeep
 
 # Jupyter Notebook checkpoints
@@ -13,3 +12,6 @@ data/outputs/*
 venv/
 .venv/
 .local/
+src/cis480src.egg-info/
+src/__pycache__/
+tests/__pycache__/

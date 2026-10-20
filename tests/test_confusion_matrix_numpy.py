@@ -1,9 +1,3 @@
-# import script fix (TODO address this repo-wide so I don't need this anymore)
-import sys
-from pathlib import Path
-src_dir = Path(__file__).resolve().parent.parent / 'src'
-sys.path.append(str(src_dir))
-
 import pytest
 import numpy as np
 import pandas as pd
