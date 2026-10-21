@@ -47,7 +47,9 @@ A model with this cutoff value will catch 49 of 68 failures, compared to a basel
    ```bash
    git clone https://github.com/CIS480-G3/CIS480_TeamProj.git
    ```
-2. **Install dependencies :**  
+   Once cloned, be sure to run all remaining commands from inside the CIS480_TeamProj directory.
+   
+3. **Install dependencies :**  
    *Optional: Create a python venv if desired:*
    ```bash
    python -m venv .venv
@@ -59,11 +61,8 @@ A model with this cutoff value will catch 49 of 68 failures, compared to a basel
    pip install -r requirements.txt
    ``` 
 
-3. **Recommended: Run the pipeline script**  
-Open VS Code or similar and navigate to `src/pipeline.py` and run script to ingest data to local device.  
-**Alternative: Run the notebook file**  
-Open Jupyter Lab or VS Code and navigate to `notebooks/ingest_pipeline.ipynb`.  
-sample_input.csv is already included in github data, and can be accessed immediately.
+4. **Recommended: Run the pipeline script**  
+Open VS Code or similar and navigate to `src/pipeline.py` and run script to ingest data to local device.
 
 ## Team Info
 * **Authors:** Anthony Fuentes, Alex Johnson, Joey Brekan, Abraham Perez
