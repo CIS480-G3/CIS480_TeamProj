@@ -1,10 +1,11 @@
 import pandas as pd
+import pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
 
 
-DATA_PATH = "data/raw/ai4i2020.csv"
+DATA_PATH = pipeline.RAW_DATA
 
 PREDICTORS = [
     "Air temperature",
