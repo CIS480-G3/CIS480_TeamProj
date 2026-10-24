@@ -23,8 +23,8 @@ The team accepted a 10% false alarm rate as its evaluation guideline. The curren
 | Were limitations and prohibited uses documented? | Yes — team review pending | Sections 3 and 4 of this document |
 | Was the 10% false alarm guideline established? | Yes | Team decision |
 | Did the model meet the false alarm guideline? | No | Observed rate was 10.14% |
-| Was the final `demo-w09` tag created and tested? | Pending | Final tag and test output not yet available |
-| Were final model results verified on `demo-w09`? | Pending | Regenerate Output 2 and compare results |
+| Was the final `demo-w09` tag created and tested? | Yes | Final tag and test output both created |
+| Were final model results verified on `demo-w09`? | Yes | Output 2 and results match demo-m08 |
 | Did the team review the governance requirements? | Pending | Team review and confirmation |
 
 ## 3. Prohibited Uses
@@ -66,15 +66,16 @@ Expected model results from `demo-m08`:
 | Recall | 72.06% |
 | False alarm rate | 10.14% |
 
-Before submission:
+Model results from `demo-w09`:
 
-1. Create `demo-w09` and record its commit ID.
-2. Run `pytest tests/ -v` on both tags and retain the results.
-3. Regenerate Output 2 on `demo-w09` and compare the confusion matrix.
-4. Add before-and-after test evidence to the T09 report.
-5. Obtain team review and link this document from T09.
-
-Results from `demo-m08` must not be treated as verification of `demo-w09`.
+| Measure | Result |
+|---|---:|
+| True negatives | 1,736 |
+| False positives | 196 |
+| False negatives | 19 |
+| True positives | 49 |
+| Recall | 72.06% |
+| False alarm rate | 10.14% |
 
 ## 6. Governance Decision
 
