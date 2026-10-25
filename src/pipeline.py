@@ -2,7 +2,7 @@
 
     **fetch_dataset_to_csv** -> Connects to internet and downloads dataset. Saves raw and processed versions to data folder as .csv files.
 
-    **load_data** -> Returns a DataFrame from local csv file in data/... directory. Specify which csv to load ( 'processed' | 'raw' )
+    **load_data** -> Returns a DataFrame from local csv file in data/... directory. Specify which csv to load ( 'processed' | 'raw' | 'sample' )
 """
 import pandas as pd
 from pathlib import Path
