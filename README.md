@@ -1,5 +1,10 @@
+
+
 # Predictive Maintenance: Comparing a Trained Classifier Against a Baseline for Machine Failure Detection
 This project explores general industrial predictive maintenance using a public, synthetic dataset. The hypothetical stakeholder is a maintenance manager looking to systematically identify and flag likely failures preemptively.
+
+## Team Info
+* **Authors:** Anthony Fuentes, Alex Johnson, Joey Brekan, Abraham Perez
 
 ## Business Problem & Objectives
 * **Problem:** Unexpected machine failure leading to downtime.
@@ -31,7 +36,7 @@ A synthetic predictive maintenance dataset designed to allow for real-world mach
 ## Tech Stack & Tools
 * **Language:** Python 3.14
 * **Libraries:** Pandas, NumPy, Scikit-learn, [see reqirements.txt for more information]
-* **Programs**: Python compatible IDE (VS Code), git
+* **Programs**: Python compatible IDE (VS Code), Jupyter Notebook, git
 
 ## Insights
 *As of 10/15/2026*
@@ -62,9 +67,36 @@ A model with this cutoff value will catch 49 of 68 failures, compared to a basel
    ``` 
 
 4. **Recommended: Run the pipeline script**  
-Open VS Code or similar and navigate to `src/pipeline.py` and run script to ingest data to local device.
+Open VS Code or similar and navigate to `src/pipeline.py` and **run script to ingest data to local device**.
 
-Note: sample_input.csv is already included in github data, and can be accessed immediately without running pipeline.py. However, all scripts that reference the full raw (ai4i21020.csv) or prepared (ai4i21020_processed.csv) datasets require -either- the pipeline to run before execution -or- modification of the script to use the sample dataset.
+Note: `sample_input.csv` is already included in github data, and can be accessed immediately without running pipeline.py. However, all scripts that reference the full raw (`ai4i21020.csv`) or prepared (`ai4i21020_processed.csv`) datasets require -**either**- the pipeline to run before execution -**or**- modification of the script to use the sample dataset.
 
-## Team Info
-* **Authors:** Anthony Fuentes, Alex Johnson, Joey Brekan, Abraham Perez
+## pipeline.py usage:
+Functions for fetching and loading data into current script.
+**fetch_dataset_to_csv** -> Connects to internet and downloads dataset. Saves raw and processed versions to data folder as `.csv` files. 
+Usage: 
+`fetch_dataset_to_csv()` 
+Runs automatically when pipeline.py is run independently.
+
+**load_data** -> Returns a DataFrame from local csv file in data/... directory. Specify which `.csv` to load ( 'processed' | 'raw' | 'sample' )
+Usage:
+`df = load_data()` returns data frame of `data/processed/ai4i2020_processed.csv`
+`df_raw = load_data('raw')` returns data frame of `data/raw/ai4i2020.csv`
+`df_sample = load_data('sample')` returns data frame of `data/sample/sample_input.csv`
+
+
+**Constants:**
+| var_name         | purpose		|
+|------------------|------------|
+| DATASET_ID       | ID of Dataset in ucimlrepo|
+| PREDICTORS       | List of dataset predictors stored as str: 'Air temperature','Process temperature', 'Rotational speed','Torque', and 'Tool wear'|
+| TARGET           | str: 'Machine failure'|
+| REPO_ROOT        | OS agnostic Path object to root (`/`) directory path |
+| DATA_DIR         | OS agnostic Path object to `data/` directory path |
+| OUTPUTS_DATA_DIR | OS agnostic Path object to `data/outputs/` directory path |
+| PROC_DATA_DIR    | OS agnostic Path object to `data/processed/` directory path |
+| PROCESSED_DATA   | OS agnostic Path object to `data/processed/ai4i2020_processed.csv` file path |
+| RAW_DATA_DIR     | OS agnostic Path object to `data/raw/` directory path |
+| RAW_DATA         | OS agnostic Path object to `data/raw/ai4i2020.csv` file path |
+| SAMPLE_DATA_DIR  | OS agnostic Path object to `data/sample/` directory path |
+| SAMPLE_DATA      | OS agnostic Path object to `data/sample/sample_input.csv` file path |
