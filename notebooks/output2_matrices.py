@@ -1,3 +1,4 @@
+from classification_metrics import precision_f1
 import pandas as pd
 import pipeline
 from pathlib import Path
@@ -33,9 +34,12 @@ model_pred = (scores >= CUTOFF).astype(int)
 rows = []
 for name, pred in [('Baseline', base_pred), ('Model at 0.66', model_pred)]:
     tn, fp, fn, tp = confusion_matrix(y_test, pred, labels=[0, 1]).ravel()
+    precision, f1 = precision_f1(tp, fp, fn)
     rows.append({'Case': name, 'TN': tn, 'FP': fp, 'FN': fn, 'TP': tp,
                  'Recall %': round(100 * tp / (tp + fn), 2),
-                 'False alarm %': round(100 * fp / (fp + tn), 2)})
+                 'False alarm %': round(100 * fp / (fp + tn), 2),
+		 'Precision %': 'n/a' if precision is None else precision,
+		 'F1': f1})
 out = pd.DataFrame(rows)
 print(out.to_string(index=False))
 
