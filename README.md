@@ -35,15 +35,19 @@ A synthetic predictive maintenance dataset designed to allow for real-world mach
 
 ## Tech Stack & Tools
 * **Language:** Python 3.14
-* **Libraries:** Pandas, NumPy, Scikit-learn, [see reqirements.txt for more information]
+* **Libraries:** Pandas, NumPy, Scikit-learn, pytest, [see reqirements.txt for more information]
 * **Programs**: Python compatible IDE (VS Code), Jupyter Notebook, git
 
 ## Insights
-*As of 10/15/2026*
-Choosing a cutoff that results in a desired false positive value of 10% or less, the following was discovered:
-* Selected Cutoff Value: **0.66**
-* Test Recall: **72.06%**
-* False Alarm Rate: **10.14%**  
+*As of 10/29/2026*  
+We sought to identify a cutoff which results in a desired false positive value of ~10% or less. With this in mind, our current model is described below:  
+|               |         |
+|---------------|---------|
+|Selected Cutoff Value| **0.66**|
+|Test Recall| **72.06%**|
+|False Alarm Rate| **10.14%**|
+|Precision| **20%**|
+|F1| **0.3131**|
 
 A model with this cutoff value will catch 49 of 68 failures, compared to a baseline model which identified 0 of 68 failures. However, the current model incorrectly issues false alarms at a rate of 10.14%, slightly above our stated limit, and far above the baseline. Further model tuning is recommended.
 
@@ -72,14 +76,15 @@ Open VS Code or similar and navigate to `src/pipeline.py` and **run script to in
 Note: `sample_input.csv` is already included in github data, and can be accessed immediately without running pipeline.py. However, all scripts that reference the full raw (`ai4i21020.csv`) or prepared (`ai4i21020_processed.csv`) datasets require -**either**- the pipeline to run before execution -**or**- modification of the script to use the sample dataset.
 
 ## pipeline.py usage:
-Functions for fetching and loading data into current script.
-**fetch_dataset_to_csv** -> Connects to internet and downloads dataset. Saves raw and processed versions to data folder as `.csv` files. 
-Usage: 
+Functions for fetching and loading data into current script.  
+
+**fetch_dataset_to_csv** -> Connects to internet and downloads dataset. Saves raw and processed versions to data folder as `.csv` files.  
+Usage:  
 `fetch_dataset_to_csv()` 
 Runs automatically when pipeline.py is run independently.
 
-**load_data** -> Returns a DataFrame from local csv file in data/... directory. Specify which `.csv` to load ( 'processed' | 'raw' | 'sample' )
-Usage:
+**load_data** -> Returns a DataFrame from local csv file in data/... directory. Specify which `.csv` to load ( 'processed' | 'raw' | 'sample' )  
+Usage:  
 `df = load_data()` returns data frame of `data/processed/ai4i2020_processed.csv`
 `df_raw = load_data('raw')` returns data frame of `data/raw/ai4i2020.csv`
 `df_sample = load_data('sample')` returns data frame of `data/sample/sample_input.csv`
