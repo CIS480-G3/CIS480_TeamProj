@@ -23,8 +23,8 @@ The team accepted a 10% false alarm rate as its evaluation guideline. The observ
 | Were limitations and prohibited uses documented? | Yes — team review pending | Sections 3 and 4 of this document |
 | Was the 10% false alarm guideline established? | Yes | Team decision |
 | Did the model meet the false alarm guideline? | No | Observed rate was 10.14% |
-| Was the final `demo-w10` tag created and tested? | Pending final-tag verification | Will add fresh-clone evidence after running the checks |
-| Were final model results verified on `demo-w10`? | Pending final-tag verification | Will add regenerated Output 2 and comparison evidence |
+| Was the final `demo-w10` tag created and tested? | Yes | 21 tests passed in a fresh clone |
+| Were final model results verified on `demo-w10`? | Yes | Output2 reproduced the expected confusion matrix and metrics |
 | Did the team review the governance requirements? | Pending | Team review and confirmation |
 
 ## 3. Intended and Prohibited Uses
