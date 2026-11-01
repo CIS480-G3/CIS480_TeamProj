@@ -3,7 +3,7 @@
 **Project:** Predictive Maintenance Classification  
 **Team:** CIS480 Group 3  
 **Owner:** Joey Brekan  
-**Last Updated:** October 28, 2026
+**Last Updated:** November 1, 2026
 
 ## 1. Purpose and Scope
 
@@ -25,7 +25,7 @@ The team accepted a 10% false alarm rate as its evaluation guideline. The observ
 | Did the model meet the false alarm guideline? | No | Observed rate was 10.14% |
 | Was the final `demo-w10` tag created and tested? | Yes | 21 tests passed in a fresh clone |
 | Were final model results verified on `demo-w10`? | Yes | Output2 reproduced the expected confusion matrix and metrics |
-| Did the team review the governance requirements? | Pending | Team review and confirmation |
+| Did the team review the governance requirements? | Yes | Team review and confirmation |
 
 ## 3. Intended and Prohibited Uses
 
@@ -85,6 +85,19 @@ Model results from `demo-w09`:
 | True positives | 49 |
 | Recall | 72.06% |
 | False alarm rate | 10.14% |
+
+Model results from `demo-w10`:
+
+| Measure | Result |
+|---|---:|
+| True negatives | 1,736 |
+| False positives | 196 |
+| False negatives | 19 |
+| True positives | 49 |
+| Recall | 72.06% |
+| False alarm rate | 10.14% |
+| Precision | 20.0% |
+| F1 | 0.3131 |
 
 Evidence:
 - [Classification metric tests](https://github.com/CIS480-G3/CIS480_TeamProj/blob/ec3fa84/tests/test_classification_metrics.py)
