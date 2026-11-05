@@ -51,6 +51,15 @@ We sought to identify a cutoff which results in a desired false positive value o
 
 A model with this cutoff value will catch 49 of 68 failures, compared to a baseline model which identified 0 of 68 failures. However, the current model incorrectly issues false alarms at a rate of 10.14%, slightly above our stated limit, and far above the baseline. Further model tuning is recommended.
 
+## Limitations
+- **Synthetic dataset:** The model was evaluated using the UCI AI4I 2020 synthetic predictive maintenance dataset. Its results may not represent actual industrial equipment, operating conditions, or failure patterns. Performance on real machine data has not been established.
+- **Recall:** At the selected 0.66 cutoff, the model detected 49 of 68 failures (72.06% recall) on the test split. This result is based on one split with only 68 failures. Earlier five-seed comparisons showed recall ranging from 58.82% to 80.88%, indicating that performance can vary depending on the data split.
+- **False alarms:** The model produced 196 false alarms among 1,932 non-failing machines, resulting in a 10.14% false alarm rate. This is slightly above the team's 10% evaluation guideline. The guideline is a team-selected target, not a requirement established by maintenance professionals.
+- **Precision and F1:** Model precision was 20.0%, with an F1 score of 0.3131. This means most alerts in the test set did not correspond to an actual failure. These metrics should be considered alongside recall rather than presenting failure detection alone.
+- **Cutoff selection:** The 0.66 cutoff was selected using a validation split rather than the test set. Although this avoids selecting the cutoff directly from test performance, the chosen threshold may not be optimal for different machines, datasets, or operational requirements.
+- **Failure-rule behavior:** Overall classification metrics do not establish whether the model responds appropriately to individual failure conditions or machines near specific failure thresholds. The planned failure-rule analysis will examine this behavior, but its findings will be limited to the test rows and rules evaluated.
+- **Operational use:** The model is an educational prototype, not a validated maintenance or safety system. It missed 19 of 68 failures at the selected cutoff. A negative prediction must not be interpreted as proof that equipment is safe, and model predictions must not replace inspections or qualified maintenance judgment.
+
 ## How to Run This Project
 1. **Clone the repository:**
    ```bash
