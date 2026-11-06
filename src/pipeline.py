@@ -8,6 +8,9 @@ import pandas as pd
 from pathlib import Path
 from typing import Literal
 
+from sklearn.linear_model import LogisticRegression
+
+
 # ================== CONSTANTS =====================
 # load_data source options
 _SOURCES = Literal['processed','raw', 'sample']
@@ -66,9 +69,11 @@ def load_data(source: _SOURCES = 'processed') -> pd.DataFrame:
 
 
 def fetch_dataset_to_csv() -> str:
-    """Fetches data from source, and creates processed version. Saves both to csv at data/...
-    Will OVERWRITE previous raw and processed csv files!    
-    Raises FileNotFoundError if file doesn't exist at location after calling save
+    """
+    Fetches data from source, and creates processed version. Saves both to csv at data/...
+    Will OVERWRITE previous raw and processed csv files!
+
+    Raises: FileNotFoundError if file doesn't exist at location after calling save
     """
     from ucimlrepo import fetch_ucirepo # import uc irvine library to fetch and format dataset
 
@@ -103,6 +108,27 @@ def fetch_dataset_to_csv() -> str:
 
     return f'All files saved successfully. ({RAW_DATA},{PROCESSED_DATA})'
 
+
+def create_model(X_train:list , y_train:list) -> LogisticRegression:
+    """Returns a LogisticRegression model based on the model expressed in confusion_matrix_numpy.py
+
+    Current Model:
+    .. code-block:: python
+        LogisticRegression(
+            class_weight = 'balanced',  
+            max_iter = 1000
+        )
+
+    NOTE: This model should be updated to reflect future improvements or changes in features (PREDICTORS).
+    At present, the model does not incorporate scaling or other pipeline improvements. 
+    Until a more complex model is established, this method has very little utility.
+    """
+
+    # train model
+    model = LogisticRegression(class_weight='balanced', max_iter=1000)
+    model.fit(X_train, y_train)
+
+    return model
 
 # if run independently, save files to data folder
 if __name__ == '__main__':
