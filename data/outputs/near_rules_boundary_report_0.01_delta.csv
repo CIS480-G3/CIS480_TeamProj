@@ -1,0 +1,9 @@
+group,adjustment,alert_expected,score,alert_reported
+OSF,under boundary (-1%),False,0.7446,True
+OSF,over boundary (+1%),True,0.7544,True
+PWF_low,under boundary (-1%),True,0.8331,True
+PWF_low,over boundary (+1%),False,0.8917,True
+PWF_high,under boundary (-1%),False,0.9727,True
+PWF_high,over boundary (+1%),True,0.9789,True
+HDF,under boundary (-1%),True,0.6741,True
+HDF,over boundary (+1%),False,0.6356,False
