@@ -110,7 +110,7 @@ def fetch_dataset_to_csv() -> str:
 
 
 def create_model(X_train:list , y_train:list) -> LogisticRegression:
-    """Returns a LogisticRegression model based on the model expressed in confusion_matrix_numpy.py
+    """Returns a fitted LogisticRegression model based on the model expressed in confusion_matrix_numpy.py
 
     Current Model:
     .. code-block:: python
@@ -125,7 +125,10 @@ def create_model(X_train:list , y_train:list) -> LogisticRegression:
     """
 
     # train model
-    model = LogisticRegression(class_weight='balanced', max_iter=1000)
+    model = LogisticRegression(
+         class_weight='balanced',
+         max_iter=1000)
+    
     model.fit(X_train, y_train)
 
     return model
