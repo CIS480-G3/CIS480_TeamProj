@@ -39,7 +39,7 @@ A synthetic predictive maintenance dataset designed to allow for real-world mach
 * **Programs**: Python compatible IDE (VS Code), Jupyter Notebook, git
 
 ## Insights
-*As of 10/29/2026*  
+*As of 11/14/2026*  
 We sought to identify a cutoff which results in a desired false positive value of ~10% or less. With this in mind, our current model is described below:  
 |               |         |
 |---------------|---------|
@@ -50,6 +50,25 @@ We sought to identify a cutoff which results in a desired false positive value o
 |F1| **0.3131**|
 
 A model with this cutoff value will catch 49 of 68 failures, compared to a baseline model which identified 0 of 68 failures. However, the current model incorrectly issues false alarms at a rate of 10.14%, slightly above our stated limit, and far above the baseline. Further model tuning is recommended.
+
+------------------------
+
+Based on all data points within the dataset, the most frequent operating conditions present are as follows:  
+|            Feature|  Mutual Information Score|
+|-------------------|--------------------|
+|             Torque|            0.047131|
+|   Rotational speed|            0.035788|
+|          Tool wear|            0.009603|
+|    Air temperature|            0.007452|
+|Process temperature|            0.004626|
+
+**Torque** is correlated most closely with machine failure, followed by **Rotational Speed** and **Tool Wear** as a distant third. It should be noted that this examination does not take into account the influence of combined features, such as temperature deltas, and the low MI scores across all individual features reflects this. Of these top three features, the difference between the mean normal operating condition and the reported condition at time of failure varies from -2% to +34%.
+
+|                 | Normal Operation|  Failure Event|  Difference|  Difference (%)|
+|-----------------|-----------------|---------------|------------|----------------|
+|Torque           |        39.629655|      50.168142|   10.538486|       26.592425|
+|Rotational speed |      1540.260014|    1496.486726|   43.773289|       -2.841942|
+|Tool wear        |       106.693717|     143.781711|   37.087994|       34.761179|
 
 ## Limitations
 - **Synthetic dataset:** The model was evaluated using the UCI AI4I 2020 synthetic predictive maintenance dataset. Its results may not represent actual industrial equipment, operating conditions, or failure patterns. Performance on real machine data has not been established.
@@ -90,15 +109,19 @@ Functions for fetching and loading data into current script.
 
 **fetch_dataset_to_csv** -> Connects to internet and downloads dataset. Saves raw and processed versions to data folder as `.csv` files.  
 Usage:  
-`fetch_dataset_to_csv()` 
+`fetch_dataset_to_csv()` saves processed and raw data to `data/processed/ai4i2020_processed.csv` and `data/raw/ai4i2020.csv` respectively.
 Runs automatically when pipeline.py is run independently.
 
 **load_data** -> Returns a DataFrame from local csv file in data/... directory. Specify which `.csv` to load ( 'processed' | 'raw' | 'sample' )  
 Usage:  
-`df = load_data()` returns data frame of `data/processed/ai4i2020_processed.csv`
-`df_raw = load_data('raw')` returns data frame of `data/raw/ai4i2020.csv`
+`df = load_data()` returns data frame of `data/processed/ai4i2020_processed.csv`  
+`df_raw = load_data('raw')` returns data frame of `data/raw/ai4i2020.csv`  
 `df_sample = load_data('sample')` returns data frame of `data/sample/sample_input.csv`
 
+**create_model** -> Returns a fitted sklearn LogisticRegression model based on the model expressed in confusion_matrix_numpy.py. Must be updated to reflect improvements or changes in features (predictors).
+At present, the model does not incorporate scaling or other pipeline improvements. Until a more complex model is established, this method has very little utility.  
+Usage:  
+`create_model(X_train, y_train)` returns LogisticRegression model object trained on input data.
 
 **Constants:**
 | var_name         | purpose		|
