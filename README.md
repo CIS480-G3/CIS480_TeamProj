@@ -138,3 +138,9 @@ Usage:
 | RAW_DATA         | OS agnostic Path object to `data/raw/ai4i2020.csv` file path |
 | SAMPLE_DATA_DIR  | OS agnostic Path object to `data/sample/` directory path |
 | SAMPLE_DATA      | OS agnostic Path object to `data/sample/sample_input.csv` file path |
+
+## Project Documentation
+
+- [Project Handoff Guide](https://github.com/CIS480-G3/CIS480_TeamProj/tree/main/docs/HANDOFF.md)
+- [Model Governance](https://github.com/CIS480-G3/CIS480_TeamProj/tree/main/docs/GOVERNANCE.md)
+- [Release Checklist](https://github.com/CIS480-G3/CIS480_TeamProj/tree/main/docs/RELEASE_CHECKLIST.md)
