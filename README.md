@@ -68,7 +68,7 @@ A model with this cutoff value will catch 49 of 68 failures, compared to a basel
    ```
    Once cloned, be sure to run all remaining commands from inside the CIS480_TeamProj directory.
    
-3. **Install dependencies :**  
+2. **Install dependencies :**  
    *Optional: Create a python venv if desired:*
    ```bash
    python -m venv .venv
@@ -80,7 +80,7 @@ A model with this cutoff value will catch 49 of 68 failures, compared to a basel
    pip install -r requirements.txt
    ``` 
 
-4. **Recommended: Run the pipeline script**  
+3. **Recommended: Run the pipeline script**  
 Open VS Code or similar and navigate to `src/pipeline.py` and **run script to ingest data to local device**.
 
 Note: `sample_input.csv` is already included in github data, and can be accessed immediately without running pipeline.py. However, all scripts that reference the full raw (`ai4i21020.csv`) or prepared (`ai4i21020_processed.csv`) datasets require -**either**- the pipeline to run before execution -**or**- modification of the script to use the sample dataset.
