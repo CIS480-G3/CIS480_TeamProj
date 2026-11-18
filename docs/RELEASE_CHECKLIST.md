@@ -19,12 +19,12 @@
 | Complete | Task | Owner |
 |---|---|---|
 | [ ] | Run pytest using the selected Python version | Alex |
+| [ ] | Obtain approval from all team members before tagging | Everyone |
+| [ ] | Create and push the final verified release tag | Alex |
 | [ ] | Complete an independent clean run using only the release tag and README | Abraham |
 | [ ] | Document clean-run steps, failures, and results | Abraham |
 | [ ] | Verify expected outputs: 2,000 machines, 245 alerts, 68 failures, 49 caught, 196 false alarms | Abraham |
 | [ ] | Address clean-run issues and retest any affected components | Alex |
-| [ ] | Obtain approval from all team members before tagging | Everyone |
-| [ ] | Create and push the final verified release tag | Alex |
 
 ## 3. Final Report and Submission
 
