@@ -100,7 +100,13 @@ Based on all data points within the dataset, the most frequent operating conditi
    ``` 
 
 3. **Recommended: Run the pipeline script**  
-Open VS Code or similar and navigate to `src/pipeline.py` and **run script to ingest data to local device**.
+Open `src/pipeline.py` and run it to ingest the data to your local device. This needs an internet connection.
+
+   *Alternative: run it from the terminal, from the repo root:*
+   ```bash
+   python src/pipeline.py
+   ```
+   When it finishes, it prints `All files saved successfully.` and creates `data/raw/ai4i2020.csv` and `data/processed/ai4i2020_processed.csv`. If it fails, see "Data download and troubleshooting" below.
 
 Note: `sample_input.csv` is already included in github data, and can be accessed immediately without running pipeline.py. However, all scripts that reference the full raw (`ai4i21020.csv`) or prepared (`ai4i21020_processed.csv`) datasets require -**either**- the pipeline to run before execution -**or**- modification of the script to use the sample dataset.
 
