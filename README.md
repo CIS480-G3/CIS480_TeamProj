@@ -35,13 +35,13 @@ A synthetic predictive maintenance dataset designed to allow for real-world mach
 
 ## Tech Stack & Tools
 * **Language:** Python 3.14
-* **Libraries:** Pandas, NumPy, Scikit-learn, pytest, [see reqirements.txt for more information]
+* **Libraries:** Pandas, NumPy, Scikit-learn, pytest, [see requirements.txt for more information]
 * **Programs**: Python compatible IDE (VS Code), Jupyter Notebook, git
 
 ## Insights
 *As of 11/14/2026*  
 We sought to identify a cutoff which results in a desired false positive value of ~10% or less. With this in mind, our current model is described below:  
-|               |         |
+| Measure | Value |
 |---------------|---------|
 |Selected Cutoff Value| **0.66**|
 |Test Recall| **72.06%**|
@@ -87,7 +87,9 @@ Based on all data points within the dataset, the most frequent operating conditi
    ```
    Once cloned, be sure to run all remaining commands from inside the CIS480_TeamProj directory.
    
-2. **Install dependencies :**  
+2. **Install dependencies :**
+   Requires Python 3.14 or newer. Check with `python --version`.
+
    *Optional: Create a python venv if desired:*
    ```bash
    python -m venv .venv
@@ -107,7 +109,42 @@ Based on all data points within the dataset, the most frequent operating conditi
    ```
    When it finishes, it prints `All files saved successfully.` and creates `data/raw/ai4i2020.csv` and `data/processed/ai4i2020_processed.csv`. If it fails, see "Data download and troubleshooting" below.
 
-Note: `sample_input.csv` is already included in github data, and can be accessed immediately without running pipeline.py. However, all scripts that reference the full raw (`ai4i21020.csv`) or prepared (`ai4i21020_processed.csv`) datasets require -**either**- the pipeline to run before execution -**or**- modification of the script to use the sample dataset.
+Note: `sample_input.csv` is already included in github data, and can be accessed immediately without running pipeline.py. However, all scripts that reference the full raw (`ai4i2020.csv`) or prepared (`ai4i2020_processed.csv`) datasets require -**either**- the pipeline to run before execution -**or**- modification of the script to use the sample dataset.
+
+4. **Check the model results:**
+   ```bash
+   python notebooks/output2_matrices.py
+   ```
+   Compare the output with "Expected outputs" below.
+
+5. **Run the tests:**
+   ```bash
+   pytest
+   ```
+   You should see `21 passed`.
+
+## Data download and troubleshooting
+The full dataset downloads from the UCI repository through the ucimlrepo package, so running `src/pipeline.py` needs an internet connection.
+
+If the download fails:
+- No internet: connect and run `src/pipeline.py` again. The full run cannot work offline.
+- Internet works but the UCI site is down: try again later.
+- If it still fails, report it in a GitHub issue with the error message and what you tried.
+
+`data/sample/sample_input.csv` is included in the repo, but it will not reproduce the expected outputs below.
+
+## Expected outputs
+Run the steps above from the repo root, in order.
+
+1. `python src/pipeline.py` prints `All files saved successfully.` and creates `data/raw/ai4i2020.csv` and `data/processed/ai4i2020_processed.csv`. It does not print model results.
+2. `python notebooks/output2_matrices.py` prints the results on the test split (2,000 machines, 20% of the 10,000 rows). You should see:
+
+| Case | TN | FP | FN | TP | Recall % | False alarm % | Precision % | F1 |
+|---|---|---|---|---|---|---|---|---|
+| Baseline | 1932 | 0 | 68 | 0 | 0.00 | 0.00 | n/a | 0.0000 |
+| Model at 0.66 | 1736 | 196 | 19 | 49 | 72.06 | 10.14 | 20.0 | 0.3131 |
+
+3. `pytest` should end with `21 passed`.
 
 ## pipeline.py usage:
 Functions for fetching and loading data into current script.  
