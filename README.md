@@ -99,8 +99,7 @@ Based on all data points within the dataset, the most frequent operating conditi
    pip install -r requirements.txt
    ``` 
 
-3. **Recommended: Run the pipeline script**  
-Open `src/pipeline.py` and run it to ingest the data to your local device. This needs an internet connection.
+3. **Recommended: Run the pipeline script in VS Code or similar.** Open `src/pipeline.py` and run it to ingest the data to your local device. This needs an internet connection.
 
    *Alternative: run it from the terminal, from the repo root:*
    ```bash
