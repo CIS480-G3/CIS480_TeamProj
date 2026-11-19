@@ -121,7 +121,7 @@ Note: `sample_input.csv` is already included in github data, and can be accessed
    ```bash
    pytest
    ```
-   You should see `21 passed`.
+   You should see `all tests pass`.
 
 ## Data download and troubleshooting
 The full dataset downloads from the UCI repository through the ucimlrepo package, so running `src/pipeline.py` needs an internet connection.
@@ -144,7 +144,7 @@ Run the steps above from the repo root, in order.
 | Baseline | 1932 | 0 | 68 | 0 | 0.00 | 0.00 | n/a | 0.0000 |
 | Model at 0.66 | 1736 | 196 | 19 | 49 | 72.06 | 10.14 | 20.0 | 0.3131 |
 
-3. `pytest` should end with `21 passed`.
+3. `pytest` should end with `all tests pass`.
 
 ## pipeline.py usage:
 Functions for fetching and loading data into current script.  
